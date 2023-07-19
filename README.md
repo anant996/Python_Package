@@ -15,4 +15,4 @@ This is a simple Python script that generates random passwords. The passwords wi
 
 5. Run the script by uncommenting the following lines at the end of the script:
 
-python  password = genPass()  print(password)
+python <br/>  password = genPass()<br/>  print(password)
