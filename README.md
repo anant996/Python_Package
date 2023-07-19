@@ -1,5 +1,5 @@
-# Python_Package
 # Random Password Generator
+# Package name: pkgAnant
 
 This is a simple Python script that generates random passwords. The passwords will be a combination of lowercase letters, uppercase letters, and digits. The script will exclude certain names from the generated passwords based on the contents of two CSV files: `names.csv` and `places.csv`.
 
