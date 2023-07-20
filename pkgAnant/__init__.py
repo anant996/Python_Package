@@ -1,1 +1,1 @@
-from .passwd import genPass
+from .passwd import gen_pass
