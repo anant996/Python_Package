@@ -1,8 +1,9 @@
 import setuptools
+VERSION = "3.3.4" 
 
 setuptools.setup(
     name="pkgAnant",                     # This is the name of the package
-    version="3.3.3",                        # The initial release version
+    version=VERSION,                        # The initial release version
     author="Anant Chaudhary",                     # Full name of the author
     description="password generator package",
     long_description_content_type="text/markdown",
