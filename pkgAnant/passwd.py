@@ -1,7 +1,7 @@
 import random
 import string
 
-def generate_pass():
+def gen_pass():
 
     # using random for range
     len=random.randint(6, 12)
