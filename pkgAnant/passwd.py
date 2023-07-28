@@ -4,7 +4,7 @@ import string
 def generate_pass():
 
     # using random for range
-    len=random.randint(6, 12)
+    len=random.randint(6, 10)
 
     # using string to generate characters
     lower=string.ascii_lowercase
