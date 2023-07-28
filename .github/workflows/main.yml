@@ -18,7 +18,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install setuptools wheel twine
-      - name: Update Version
 
       - name: Build and Publish
         env:
