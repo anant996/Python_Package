@@ -19,10 +19,10 @@ jobs:
       - name: Install dependencies
         run: pip install setuptools wheel twine
       - name: Update Version
-        env:
-          NEW_VERSION: 3.1.1  # Replace '1.2.3' with your desired version
-        run: |
-          sed -i "s/^VERSION = .*/VERSION = '${NEW_VERSION}'/" setup.py
+#         env:
+#           NEW_VERSION: 3.1.1  # Replace '1.2.3' with your desired version
+#         run: |
+#           sed -i "s/^VERSION = .*/VERSION = '${NEW_VERSION}'/" setup.py
       - name: Build and Publish
         env:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
