@@ -18,6 +18,11 @@ jobs:
 
       - name: Install dependencies
         run: pip install setuptools wheel twine
+      - name: Update Version
+        env:
+          NEW_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          sed -i "s/^VERSION = .*/VERSION = '${NEW_VERSION}'/" setup.py
 
       - name: Build and Publish
         env:
