@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="pkgAnant",                     # This is the name of the package
-    version="3.4.5",                        # The initial release version
+    version="3.5.5",                        # The initial release version
     author="Anant Chaudhary",                     # Full name of the author
     description="password generator package",
     long_description_content_type="text/markdown",
