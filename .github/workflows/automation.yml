@@ -20,7 +20,7 @@ jobs:
         run: pip install setuptools wheel twine
       - name: Update Version
         env:
-          NEW_VERSION: 2.2.2  # Replace '1.2.3' with your desired version
+          NEW_VERSION: 2.3.3  # Replace '1.2.3' with your desired version
         run: |
           sed -i "s/^VERSION = .*/VERSION = '${NEW_VERSION}'/" setup.py
       - name: Build and Publish
