@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+    inputs:
+      version_number:
+        description: 'Version Number'
+        required: true
 
 jobs:
   publish:
@@ -20,20 +25,12 @@ jobs:
         with:
           python-version: 3.8
 
-      # Modify the 'env.list' file with the desired version
-      - name: Set VERSION environment variable
-        run: |
-          echo "VERSION=${VERSION}" >> env.list
-        shell: bash
-
-      - name: Update version in setup.py
-        env:
-          VERSION: ${{ env.VERSION }} # Accessing the VERSION environment variable
-        run: |
-          sed -i "s/version=\"[0-9.]*\"/version=\"$VERSION\"/" setup.py
-
       - name: Install dependencies
         run: pip install setuptools wheel twine
+        
+      - name: Update version in version.py
+        run: |
+          echo "ver= '${{ github.event.inputs.version_number }}'" > version.py
 
       - name: Build and Publish
         env:
