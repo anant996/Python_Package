@@ -8,6 +8,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ secrets.NEW_VERSION }} # You can set a default version using a secret or a fixed value.
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,11 +20,11 @@ jobs:
         with:
           python-version: 3.8
 
-      # Define an environment variable 'VERSION' and set it to the desired version manually
+      # Modify the 'env.list' file with the desired version
       - name: Set VERSION environment variable
         run: |
-          echo "Enter the new version (in format X.Y.Z):"
-          echo "::set-env name=VERSION::$(read -r version && echo $version)"
+          echo "VERSION=${VERSION}" >> env.list
+        shell: bash
 
       - name: Update version in setup.py
         env:
