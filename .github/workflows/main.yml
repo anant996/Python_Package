@@ -17,9 +17,6 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Install dependencies
-        run: pip install setuptools wheel twine
-
       - name: Prompt for version
         id: version_prompt
         run: |
@@ -31,6 +28,9 @@ jobs:
           VERSION: ${{ steps.version_prompt.outputs.version }}
         run: |
           sed -i "s/version=\"[0-9.]*\"/version=\"$VERSION\"/" setup.py
+
+      - name: Install dependencies
+        run: pip install setuptools wheel twine
 
       - name: Build and Publish
         env:
