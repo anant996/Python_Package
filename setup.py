@@ -2,7 +2,7 @@ import setuptools
 import os
 
 # Get the version from the environment variable (RELEASE_VERSION) set by the GitHub Action workflow
-version = os.getenv("RELEASE_VERSION", "3.5.5")  # Provide a default version if RELEASE_VERSION is not set
+version = os.getenv("RELEASE_VERSION", "3.5.7")  # Provide a default version if RELEASE_VERSION is not set
 
 setuptools.setup(
     name="pkgAnant",
