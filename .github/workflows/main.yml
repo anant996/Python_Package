@@ -6,15 +6,13 @@ on:
       - master
   workflow_dispatch:
     inputs:
-      version_number:
+      version_num:
         description: 'Version Number'
         required: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      VERSION: ${{ secrets.NEW_VERSION }} # You can set a default version using a secret or a fixed value.
 
     steps:
       - name: Checkout code
@@ -30,7 +28,7 @@ jobs:
         
       - name: Update version in version.py
         run: |
-          echo "ver= '${{ github.event.inputs.version_number }}'" > version.py
+          echo "ver= '${{ github.event.inputs.version_num }}'" > version.py
 
       - name: Build and Publish
         env:
