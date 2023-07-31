@@ -26,9 +26,9 @@ jobs:
       - name: Install dependencies
         run: pip install setuptools wheel twine
         
-      - name: Update version in version.py
+      - name: Update version in setup.py
         run: |
-          echo "ver= '${{ github.event.inputs.version_num }}'" > version.py
+          echo "ver= '${{ github.event.inputs.version_num }}'" > setup.py
 
       - name: Build and Publish
         env:
