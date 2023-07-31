@@ -1,4 +1,5 @@
 name: Publish to PyPI
+
 on:
   push:
     branches:
@@ -19,6 +20,18 @@ jobs:
       - name: Install dependencies
         run: pip install setuptools wheel twine
 
+      - name: Prompt for version
+        id: version_prompt
+        run: |
+          echo "Enter the new version (in format X.Y.Z):"
+          echo "::set-output name=version::$(read -r version && echo $version)"
+
+      - name: Update version in setup.py
+        env:
+          VERSION: ${{ steps.version_prompt.outputs.version }}
+        run: |
+          sed -i "s/version=\"[0-9.]*\"/version=\"$VERSION\"/" setup.py
+
       - name: Build and Publish
         env:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
@@ -26,4 +39,3 @@ jobs:
         run: |
           python setup.py sdist bdist_wheel
           twine upload dist/*
- 
