@@ -26,9 +26,9 @@ jobs:
       - name: Install dependencies
         run: pip install setuptools wheel twine
         
-      - name: Update version in setup.py
+      - name: Update version in version.py
         run: |
-          echo "ver= '${{ github.event.inputs.version_num }}'" > setup.py
+          echo "ver= '${{ github.event.inputs.version_num }}'" > version.py
 
       - name: Build and Publish
         env:
@@ -36,5 +36,5 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
           python setup.py sdist bdist_wheel
-          twine upload --skip-existing dist/*
+          twine upload dist/*
           
