@@ -1,5 +1,5 @@
 import setuptools
-ver='3.5.8'
+ver="3.5.8"
 
 setuptools.setup(
     name="pkgAnant",
