@@ -17,15 +17,15 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Prompt for version
-        id: version_prompt
+      # Define an environment variable 'VERSION' and set it to the desired version manually
+      - name: Set VERSION environment variable
         run: |
           echo "Enter the new version (in format X.Y.Z):"
-          echo "::set-output name=version::$(read -r version && echo $version)"
+          echo "::set-env name=VERSION::$(read -r version && echo $version)"
 
       - name: Update version in setup.py
         env:
-          VERSION: ${{ steps.version_prompt.outputs.version }}
+          VERSION: ${{ env.VERSION }} # Accessing the VERSION environment variable
         run: |
           sed -i "s/version=\"[0-9.]*\"/version=\"$VERSION\"/" setup.py
 
